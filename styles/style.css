@@ -11,26 +11,46 @@
 */
 
 .page {
+  --min-background-block-size: 667px;
+  --border-line: 2px solid #000;
+
   min-inline-size: 320px;
+  max-inline-size: 696px;
+  margin-inline: auto; 
+
   min-block-size: 100dvb;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+
+  
+/* фон */
+  background: 
+    /* маска для фона */
+    linear-gradient(
+    to bottom,
+    rgba(255,255,255, 0) 0,
+    rgba(255,255,255, 0) var(--min-background-block-size),
+    rgba(255,255,255, 1) var(--min-background-block-size),
+    rgba(255,255,255, 1) 100%
+    ),
+    /* основной фон */
+    var(--bg-image);
+  background-size: cover, cover, cover, cover;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
 }
+
+/* #region header  */
 
 .header {
-  display: block;
-  min-block-size: 327px;
-  padding-block: 100px;
-
-
-  background-image: url(../images/background.png);
-  background-repeat: repeat;
-}
-
-.header__text-group {
+  
   display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
-  
-  min-block-size: 327px;
-  
+  place-items: center;  
   font-family: var(--font-accent);
   font-weight: 400;
   font-style: normal;
@@ -39,31 +59,213 @@
   border: 2px solid #000;
   background-color: #fff;
 
-  place-items: center;
+  margin-block: 100px;
 
+  inline-size: 100%;
+  min-block-size: 327px;
+
+}
+
+.header__text-group {
+
+
+}
+
+.header__logo {
+  display: block;
+  align-self: flex-end;
+  
+  font-size: clamp(32px, 10vw, 64px);
 }
 
 .header__title {
   display: block;
-  font-size: 49px;
-
-  align-self: flex-end;
-}
-
-.header__subtitle {
-  display: block;
-  font-size: 14px;
-
   align-self: flex-start;
+
+  font-size: clamp(12px, 3vw, 24px);
 }
+
+/* #endregion */
 
 .main {
   display: flex;
   flex-direction: column;
   gap: 52px;
+  margin-block-end: 100px;
 }
 
-.card {
+.post__list {
   display: flex;
   flex-direction: column;
+  gap: 52px;
+}
+
+.post__list-item {
+  border: var(--border-line);
+  background-color: #fff;
+}
+
+.post__title {
+  padding-inline: 3px 10px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.post__text {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  padding: 25px;
+
+}
+
+.post__text p:not(:last-child) {
+  margin-block-end: 27px;
+}
+
+.post__image-wrapper {
+  position: relative;
+  border-block: var(--border-line);
+}
+
+.post__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: center;
+  object-position: center;
+}
+
+
+.post__label {
+  --stroke-color: #fff; /* Цвет обводки */
+  
+  position: absolute;
+  top: 25px;
+  right: 13px;
+
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+
+  text-transform: uppercase;
+
+  
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  /* Фоллбэк через text-shadow: */
+  text-shadow:
+    -1px -1px 0 var(--stroke-color),
+     1px -1px 0 var(--stroke-color),
+    -1px  1px 0 var(--stroke-color),
+     1px  1px 0 var(--stroke-color);
+}
+
+@supports (-webkit-text-stroke: 2px var(--stroke-color)) or (text-stroke: 2px var(--stroke-color)) {
+  .label {
+    -webkit-text-stroke: 2px var(--stroke-color);
+    text-stroke: 2px var(--stroke-color);
+    text-shadow: none; /* Убираем фоллбэк, если поддерживается обводка */
+  }
+}
+
+
+.post__controlls {  
+  display: flex;
+  justify-content: end;
+  margin-block-end: 25px;
+  margin-inline-end: 25px;
+  
+}
+
+.button {
+  border: var(--border-line);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px black;
+}
+
+.button-like {
+  width: 130px;
+  height: 38px;
+  padding: 9px 17px;
+  margin-inline-start: 10px;
+  
+}
+
+.button-save {
+  
+  height: 84px;
+  margin-inline: 35px;
+  padding: 15px 20px;
+
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+
+  align-items: center;
+  justify-items: center;
+
+}
+
+.button-save img {
+  width: 28px;
+  height: 28px;
+}
+
+.button-save:hover img {
+  background-color: #fff;
+}
+
+.button__text {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  text-transform: capitalize;
+}
+
+.filter-composite-brightness {
+  filter: 
+    hue-rotate(10deg)
+    brightness(1.2)
+    saturate(0.8) 
+    contrast(.5)
+}
+
+.filter-invert {
+  filter: invert();
+}
+
+.filter-sepia {
+  filter: sepia();
+}
+
+.filter-blur {
+  filter: blur(5px);
+}
+
+.filter-composite {
+  filter: 
+    hue-rotate(100deg) 
+    brightness(1.3) 
+    saturate(0.7) 
+    contrast(0.9) 
+    opacity(0.85);
 }

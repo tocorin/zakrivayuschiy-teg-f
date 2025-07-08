@@ -6,4 +6,27 @@
 
   --card-title-weight: 700;
   --card-text-weight: 400;
+
+
+
+  /* наш фон */
+  --bg-image: 
+    repeating-linear-gradient(
+      to right, 
+      #d3d3d3, #d3d3d3 2px, 
+      transparent 2px, 
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3, #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(
+      to bottom,
+      #e7e7e7 0%,
+      #e7e7e7 0.01%,
+      #1a1a1a 100%
+    );
 }

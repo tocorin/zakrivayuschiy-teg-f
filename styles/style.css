@@ -14,3 +14,56 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
+
+.header {
+  display: block;
+  min-block-size: 327px;
+  padding-block: 100px;
+
+
+  background-image: url(../images/background.png);
+  background-repeat: repeat;
+}
+
+.header__text-group {
+  display: grid;
+  gap: 20px;
+  
+  min-block-size: 327px;
+  
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+
+  border: 2px solid #000;
+  background-color: #fff;
+
+  place-items: center;
+
+}
+
+.header__title {
+  display: block;
+  font-size: 49px;
+
+  align-self: flex-end;
+}
+
+.header__subtitle {
+  display: block;
+  font-size: 14px;
+
+  align-self: flex-start;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}

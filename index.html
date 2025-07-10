@@ -14,8 +14,8 @@
 
 <body class="page">
   <header class="header">
-      <h1 class="header__logo">&lt;html&gt;</h1>
-      <h2 class="header__title">закрывающий тег</h2>
+    <h1 class="header__logo">&lt;html&gt;</h1>
+    <h2 class="header__title">закрывающий тег</h2>
   </header>
   <main class="main">
     <ul class="post__list">
@@ -158,10 +158,19 @@
 
     </ul>
 
-    <button class="button button-save">
+    <button class="button button-save" onclick="dialog.show()">
       <img src="./images/floppy.svg" />
       <span class="button__text">cохранить на память</span>
     </button>
+    <dialog id="dialog" class="dialog" open>
+      <div class="dialog__content">
+        <img class="dialog__icon" src="" alt="дискета">
+        <span class="dialog__text">Вставьте дискету, чтобы продолжить</span>
+      </div>
+      <button class="button dialog-button">
+        <span class="button__text" onclick="dialog.close()">ok</span>
+      </button>
+    </dialog>
   </main>
   <script src="./scripts/like.js"></script>
 </body>

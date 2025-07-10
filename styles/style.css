@@ -269,3 +269,8 @@
     contrast(0.9) 
     opacity(0.85);
 }
+
+.dialog {
+  width: 341px;
+  height: 191px;
+}

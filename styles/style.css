@@ -29,17 +29,17 @@
 /* фон */
   background: 
     /* маска для фона */
-    linear-gradient(
+    /* linear-gradient(
     to bottom,
     rgba(255,255,255, 0) 0,
     rgba(255,255,255, 0) var(--min-background-block-size),
     rgba(255,255,255, 1) var(--min-background-block-size),
     rgba(255,255,255, 1) 100%
-    ),
+    ), */
     /* основной фон */
     var(--bg-image);
   background-size: cover, cover, cover, cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -151,7 +151,7 @@
   font-weight: 400;
   font-size: 14px;
 
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   
   opacity: 0.5;
@@ -183,13 +183,31 @@
 
 .button {
   border: var(--border-line);
-  background-color: transparent;
+  background-color: #fff;
   cursor: pointer;
+  
+  position: relative;
+  overflow: hidden;
+
+  height: 100%;
 }
 
-.button:hover {
+.button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
   background-color: #000;
-  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.button:hover::before {
+  transform: translateX(0);
 }
 
 .button:focus {
@@ -199,6 +217,7 @@
 .button:focus-visible {
   outline: none;
   box-shadow: 2px 2px black;
+  transition: box-shadow 0.3s ease;
 }
 
 .button-like {
@@ -210,7 +229,6 @@
 }
 
 .button-save {
-  
   height: 84px;
   margin-inline: 35px;
   padding: 15px 20px;
@@ -229,48 +247,104 @@
   height: 28px;
 }
 
-.button-save:hover img {
-  background-color: #fff;
+.floppy_icon {
+  color: #000;
+  mix-blend-mode: difference;
+  width: 28px;
+  height: 28px;
 }
 
+.button:hover .floppy_icon {
+  color: #fff;
+}
+
+
 .button__text {
+  /* чтобы заработал z-index на кнопке LIKE*/
+  position: relative;
+
   font-family: var(--font-accent);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
   text-transform: capitalize;
+  color: #fff;
+  mix-blend-mode: difference;
+  z-index: 2;
 }
 
-.filter-composite-brightness {
-  filter: 
-    hue-rotate(10deg)
-    brightness(1.2)
-    saturate(0.8) 
-    contrast(.5)
+/* 1. Тревожное изображение (резкое, инвертированное) */
+.filter-anxiety {
+  filter: contrast(200%) invert(100%) brightness(90%);
 }
 
-.filter-invert {
-  filter: invert();
+/* 2. Ностальгическое (тёплое, слегка размытое) */
+.filter-nostalgia {
+  filter: sepia(70%) blur(1px) brightness(110%);
 }
 
-.filter-sepia {
-  filter: sepia();
+/* 3. Футуристичное (неоновые цвета) */
+.filter-futuristic {
+  filter: hue-rotate(180deg) brightness(120%) saturate(150%);
 }
 
-.filter-blur {
-  filter: blur(5px);
+/* 4. Мистическое (размытое с глубокой тенью) */
+.filter-mystic {
+  filter: blur(2px) drop-shadow(1px 1px 1px #000);
 }
 
-.filter-composite {
-  filter: 
-    hue-rotate(100deg) 
-    brightness(1.3) 
-    saturate(0.7) 
-    contrast(0.9) 
-    opacity(0.85);
+/* 5. Грустное (приглушённое, чёрно-белое) */
+.filter-sadness {
+  filter: grayscale(100%) brightness(70%);
 }
 
-.dialog {
+/* 6. Яркое и радостное (насыщенные цвета) */
+.filter-joy {
+  filter: brightness(120%) contrast(130%) saturate(150%);
+}
+
+/* 7. Сюрреалистичное (инверсия + сдвиг цветов) */
+.filter-surreal {
+  filter: invert(80%) hue-rotate(90deg);
+}
+
+/* 8. Мрачное (тёмное, с эффектом старины) */
+.filter-dark {
+  filter: sepia(50%) brightness(60%);
+}
+
+.dialog[open] {
   width: 341px;
   height: 191px;
+
+  padding: 30px 42px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog__icon {
+  width: 39px;
+  height: 39px;
+}
+
+.dialog__text {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  /* line-height: 150%; */
+  text-transform: uppercase;
+}
+
+.dialog__content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dialog-button {
+  min-inline-size: 257px;
+  min-block-size: 38px;
+  padding: 9px 17px;
 }

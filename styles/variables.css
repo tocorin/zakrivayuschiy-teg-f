@@ -6,6 +6,10 @@
 
   --card-title-weight: 700;
   --card-text-weight: 400;
+  
+  /* Вариативные настройки для Inter-Variable */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
 
 
 

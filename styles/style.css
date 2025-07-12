@@ -108,13 +108,13 @@
 .post__title {
   padding-inline: 3px 10px;
   font-family: var(--font-main);
-  font-weight: 700;
+  font-variation-settings: 'wght' var(--font-weight-bold);
   font-size: 18px;
 }
 
 .post__text {
   font-family: var(--font-main);
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-weight-normal);
   font-size: 18px;
   line-height: 21px;
 

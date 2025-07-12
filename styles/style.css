@@ -248,14 +248,16 @@
 }
 
 .floppy_icon {
-  color: #000;
+  color: #fff;
   mix-blend-mode: difference;
   width: 28px;
   height: 28px;
+  z-index: 3;
 }
 
-.button:hover .floppy_icon {
-  color: #fff;
+.floppy_icon__normal-mode {
+  color: #000;
+  mix-blend-mode: normal;
 }
 
 

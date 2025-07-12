@@ -176,6 +176,7 @@
 .post__controlls {  
   display: flex;
   justify-content: end;
+  align-items: center;
   margin-block-end: 25px;
   margin-inline-end: 25px;
   
@@ -221,11 +222,30 @@
 }
 
 .button-like {
+  width: 43px;
+  height: 39px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  /* padding-block-start: 4px; */
+  cursor: pointer;
+}
+
+.button-like:focus {
+  outline: none;
+}
+
+.button-like:focus-visible {
+    outline: none;
+    border: 2px solid black;
+    transition: border 0.3s ease;
+}
+
+.button-post {
   width: 130px;
   height: 38px;
   padding: 9px 17px;
   margin-inline-start: 10px;
-  
 }
 
 .button-save {
@@ -318,9 +338,7 @@
 .dialog[open] {
   width: 341px;
   height: 191px;
-
   padding: 30px 42px;
-
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -349,4 +367,110 @@
   min-inline-size: 257px;
   min-block-size: 38px;
   padding: 9px 17px;
+}
+
+dialog::backdrop {
+  background-color: #000;
+  opacity: 0.75;
+}
+
+
+/* heart stuff */
+
+.button-like .core {
+  transition: fill 0.3s;
+}
+
+.button-like:hover .core {
+  fill: var(--like-icon-contour);
+  transition-delay: 0s;
+}
+
+.button-like:active .core {
+  fill: var(--like-icon-fill);
+  transition-delay: 0s;
+}
+
+.button-like:not(:hover) .core {
+  fill: transparent;
+  transition-delay: 0.03s;
+}
+
+.button-like .main-body {
+  transition: fill 0.3s;
+}
+
+.button-like:hover .main-body {
+  fill: var(--like-icon-contour);
+  transition-delay: 0.05s;
+}
+
+.button-like:active .main-body {
+  fill: var(--like-icon-fill);
+  transition-delay: 0.05s;
+}
+
+.button-like:not(:hover) .main-body {
+  fill: transparent;
+  transition-delay: 0s;
+}
+
+
+.button-like .contour {
+  fill: var(--like-icon-contour);
+  transition: fill 0.1 linear;
+}
+
+.button-like .sparks {
+  opacity: 0;
+}
+
+
+.like-icon.is-liked .core {
+  fill: var(--like-icon-fill);
+  transition: fill 0.3s;
+  
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--like-icon-fill);
+  transition: fill 0.3s;  
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--like-icon-fill);
+  transition: fill 0.3s;
+  transition-delay: 0.06s;
+}
+
+.heart {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s 1 backwards;
+}
+
+.is-liked .sparks {
+  animation: sparks-flash 0.3s ease-in 0.3s 1 backwards;
+}
+
+@keyframes heart-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}
+
+
+@keyframes sparks-flash {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

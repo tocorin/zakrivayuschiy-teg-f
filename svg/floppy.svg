@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg">
     <symbol id="floppy" viewBox="0 0 29 28">
+        <g class="floppy_disk">
         <path fill="currentColor"
             d="M.5 0h2.154v2.154H.5zM.5 2.154h2.154v2.154H.5zM.5 4.308h2.154v2.154H.5z" />
         <path fill="currentColor"
@@ -36,5 +37,6 @@
         <path fill="currentColor"
             d="M28.5 12.924h-2.154V10.77H28.5zM28.5 10.769h-2.154V8.615H28.5zM28.5 8.615h-2.154V6.461H28.5z" />
         <path fill="currentColor" d="M28.5 6.462h-2.154V4.308H28.5z" />
+        </g>
     </symbol>
 </svg>

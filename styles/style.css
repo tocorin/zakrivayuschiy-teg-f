@@ -20,23 +20,12 @@
 
   min-block-size: 100dvb;
 
-
   display: flex;
   flex-direction: column;
   align-items: center;  
 
-  
 /* фон */
-  background: 
-    /* маска для фона */
-    /* linear-gradient(
-    to bottom,
-    rgba(255,255,255, 0) 0,
-    rgba(255,255,255, 0) var(--min-background-block-size),
-    rgba(255,255,255, 1) var(--min-background-block-size),
-    rgba(255,255,255, 1) 100%
-    ), */
-    /* основной фон */
+  background:
     var(--bg-image);
   background-size: cover, cover, cover, cover;
   background-attachment: fixed;
@@ -66,7 +55,6 @@
   min-block-size: 327px;
 
 }
-
 
 .header__logo {
   display: block;
@@ -136,7 +124,6 @@
   object-position: center;
 }
 
-
 .post__label {
   --stroke-color: #fff; /* Цвет обводки */
   
@@ -182,10 +169,8 @@
   border: var(--border-line);
   background-color: #fff;
   cursor: pointer;
-  
   position: relative;
   overflow: hidden;
-
   height: 100%;
 }
 
@@ -272,7 +257,6 @@
   mix-blend-mode: normal;
   flex-shrink: 0;
 }
-
 
 .button__text {
   /* чтобы заработал z-index на кнопке LIKE*/
@@ -374,7 +358,6 @@ dialog::backdrop {
   opacity: 0.75;
 }
 
-
 /* heart stuff */
 
 .button-like .core {
@@ -415,7 +398,6 @@ dialog::backdrop {
   transition-delay: 0s;
 }
 
-
 .button-like .contour {
   fill: var(--like-icon-contour);
   transition: fill 0.1 linear;
@@ -425,11 +407,9 @@ dialog::backdrop {
   opacity: 0;
 }
 
-
 .like-icon.is-liked .core {
   fill: var(--like-icon-fill);
   transition: fill 0.3s;
-  
 }
 
 .like-icon.is-liked .main-body {

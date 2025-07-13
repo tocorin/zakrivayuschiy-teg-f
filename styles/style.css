@@ -52,7 +52,7 @@
   margin-block: 100px;
 
   inline-size: 100%;
-  min-block-size: 327px;
+  /* min-block-size: 327px; */
 
 }
 
@@ -218,7 +218,6 @@
 .button-like:focus-visible {
     outline: none;
     border: 2px solid black;
-    transition: border 0.3s ease;
 }
 
 .button-post {
@@ -436,29 +435,9 @@ dialog::backdrop {
   animation: sparks-flash 0.3s ease-in 0.3s 1 backwards;
 }
 
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.25);
-  }
-}
-
-
-@keyframes sparks-flash {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 
 @media (width >= 375px) {
   .button-save {
-
     width: 335px;
     height: 55px;
     padding-block-start: 0;
@@ -474,6 +453,7 @@ dialog::backdrop {
     font-size: 13px;
     text-align: center;
   }
+
   .button-save .floppy_icon {
     width: 21px;
     height: 21px;

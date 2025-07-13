@@ -244,9 +244,9 @@
 }
 
 .button-save {
-  height: 84px;
-  margin-inline: 35px;
-  padding: 15px 20px;
+  min-width: 306px;
+  height: 80px;
+  padding-block-start: 15px;
 
   display:flex;
   flex-direction: column;
@@ -255,11 +255,8 @@
   align-items: center;
   justify-items: center;
 
-}
+  align-self: center;
 
-.button-save img {
-  width: 28px;
-  height: 28px;
 }
 
 .floppy_icon {
@@ -273,6 +270,7 @@
 .floppy_icon__normal-mode {
   color: #000;
   mix-blend-mode: normal;
+  flex-shrink: 0;
 }
 
 
@@ -284,7 +282,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   color: #fff;
   mix-blend-mode: difference;
   z-index: 2;
@@ -331,12 +329,8 @@
 }
 
 .dialog[open] {
-  width: 341px;
-  height: 191px;
-  padding: 30px 42px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  max-width: 341px;
+  padding: 0;
 }
 
 .dialog__icon {
@@ -348,20 +342,31 @@
   font-family: var(--font-accent);
   font-weight: 400;
   font-size: 14px;
-  /* line-height: 150%; */
+  line-height: 150%;
   text-transform: uppercase;
 }
 
 .dialog__content {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 20px;
 }
 
 .dialog-button {
-  min-inline-size: 257px;
-  min-block-size: 38px;
-  padding: 9px 17px;
+  width: 257px;
+  height: 38px;
+  padding-top: 9px;
+  padding-right: 17px;
+  padding-bottom: 9px;
+  padding-left: 17px;
+}
+
+.dialog__container {
+  padding: 30px 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 dialog::backdrop {
@@ -468,4 +473,30 @@ dialog::backdrop {
   to {
     opacity: 1;
   }
+}
+
+
+@media (width >= 375px) {
+  .button-save {
+
+    width: 335px;
+    height: 55px;
+    padding-block-start: 0;
+    padding-inline-start: 19px;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap:8px;
+    align-self: center;
+  }
+
+  .button-save .button__text {
+    font-size: 13px;
+    text-align: center;
+  }
+  .button-save .floppy_icon {
+    width: 21px;
+    height: 21px;
+  }
+
 }

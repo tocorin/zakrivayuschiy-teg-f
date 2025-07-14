@@ -254,6 +254,9 @@
   color: #000;
   mix-blend-mode: normal;
   flex-shrink: 0;
+
+  width: 39px;
+  height: 39px;
 }
 
 .button__text {
@@ -323,7 +326,7 @@
 .dialog__text {
   font-family: var(--font-accent);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 150%;
   text-transform: uppercase;
 }
@@ -435,7 +438,7 @@ dialog::backdrop {
 }
 
 
-@media (width > 376px) {
+@media (min-width: 376px) {
 
   .header {
     padding: 126px 0;
@@ -466,6 +469,14 @@ dialog::backdrop {
   .button-save .floppy_icon {
     width: 21px;
     height: 21px;
+  }
+
+  .dialog[open] {
+    min-inline-size: 353px;
+  }
+
+  .dialog__text {
+    font-size: 14px;
   }
 
 }
